@@ -20,3 +20,6 @@ if __name__ == "__main__":
     print("\n--- Résultat ---")
     print("Message chiffré :", message_chiffre)
     print("Clé utilisée pour le déchiffrement :", cle)
+
+
+
