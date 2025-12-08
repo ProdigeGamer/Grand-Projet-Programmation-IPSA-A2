@@ -20,7 +20,6 @@ fernet = None
 
 nom_utilisateur = simpledialog.askstring("Nom d'utilisateur", "Entrez votre nom d'utilisateur :")
 
-# Nouvelle fonction pour afficher les messages avec bulles
 def afficher_message(utilisateur, message, type_msg):
     """Fonction pour afficher les messages avec des bulles style WhatsApp"""
     zone_messages.config(state="normal")
@@ -113,7 +112,6 @@ def cree_messagerie():
             global connection, connected
             connection, addr = server_socket.accept()
             connected = True
-            # J'ai modifié l'affichage du message système
             afficher_message("Système", f"Connecté à {addr[0]}:{addr[1]}", "receive")
             threading.Thread(target=recevoir_messages, daemon=True).start()
         
