@@ -56,8 +56,6 @@ def recevoir_messages():
             
             message_chiffre = message_data['message'].encode()
             message_dechiffre = fernet.decrypt(message_chiffre).decode('utf-8')
-            
-            # J'ai remplacé l'ancien affichage par la nouvelle fonction avec bulles
             afficher_message(message_data['user'], message_dechiffre, "receive")
             
         except Exception as e:
@@ -183,7 +181,6 @@ def lancer_messagerie():
     zone_messages.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
     
-    # Configuration des tags pour le style des messages - VERSION CORRIGÉE
     # Messages envoyés (à droite)
     zone_messages.tag_configure("message_send", 
                                background="#DCF8C6",  # vert WhatsApp
@@ -237,7 +234,6 @@ def _envoie(event=None):
         })
         connection.send(data.encode('utf-8'))
         
-        # J'ai changé ici pour utiliser la nouvelle fonction d'affichage avec bulles
         afficher_message(nom_utilisateur, message, "send")
         entree.delete(0, "end")
         

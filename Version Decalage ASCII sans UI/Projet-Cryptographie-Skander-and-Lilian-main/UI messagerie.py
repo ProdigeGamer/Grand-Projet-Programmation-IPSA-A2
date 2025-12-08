@@ -20,7 +20,7 @@ nom_utilisateur = simpledialog.askstring("Nom d'utilisateur", "Entrez votre nom 
 
 
 def encodage(texte, k):
-    """Votre fonction de cryptage originale"""
+    
     codage_ascii = []    #liste vide qui va contenir le code ascii de chaque lettre
     result = ""         #variable qui va contenir le texte codé
     for char in texte:    #je fais une boucle for pour mettre chaque lettre en ascii + k
@@ -32,7 +32,7 @@ def encodage(texte, k):
     return result
 
 def reconvertir(chiffres, k):
-    """Votre fonction de décryptage originale"""
+    
     phrase = ""
     for char in chiffres:  #je fais une boucle for pour convertir le code ascii - k en lettre
         newchar = chr(char - k)
@@ -40,7 +40,7 @@ def reconvertir(chiffres, k):
     return phrase
 
 def chiffrer_message(message, k):
-    """Adaptation pour l'interface de messagerie"""
+    
     try:
         return encodage(message, k)
     except Exception as e:
@@ -48,7 +48,6 @@ def chiffrer_message(message, k):
         return message
 
 def dechiffrer_message(message_chiffre, k):
-    """Adaptation pour l'interface de messagerie"""
     try:
         # Convertir la chaîne en liste d'entiers (codes ASCII)
         codes_ascii = [ord(char) for char in message_chiffre]
@@ -59,7 +58,6 @@ def dechiffrer_message(message_chiffre, k):
 
 
 def recevoir_messages():
-    """Thread pour recevoir les messages du réseau"""
     global connection, connected, crypto_key
     while connected:
         try:
@@ -206,7 +204,6 @@ def _envoie(event=None):
         return
     
     try:
-        # Utilisation de votre cryptage pour chiffrer
         message_chiffre = chiffrer_message(message, crypto_key)
         
         data = json.dumps({
